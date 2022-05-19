@@ -12,6 +12,35 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Search for City -->
+            <div class="col-2">
+                <form id="citySearchForm">
+                    <h2>Search for City</h2>
+                    <input placeholder="Enter a City" name="city" id="city" id="city-input" type="text" />
+                    <button type="submit" id="submitbtn">Search</button>
+                </form>
+                <div id="recentSearches">
+                    <div id="recent-search-1"></div>
+                </div>
+            </div>
+
+            <!-- Display Current Weather -->
+            <div class="col-8">
+                <article id="weather-info">
+                    <div class="p-flex" id="current-city"></div>
+                </article>
+
+                <!-- 5 day forecast -->
+                <div class="p-flex justify-content-between" id="5day">
+                    <h3>5-Day Forecast</h3>
+                </div> 
+            </div>
+        </div>
+    </div>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
