@@ -134,31 +134,36 @@ var displayForecast = function(pickedCity) {
     fetch(pickedCity).then(function(response) {
         response.json().then(function(data) {
 
+            // Shows Date
+            var extantDateEl = document.createElement("h5")
+            extantDateEl.textContent = moment().add(1, 'days').format('1')
+            day1El.append(extantDateEl);
+
        //shows Icons 
-        console.log (data.current.weather[0].icon);
+        console.log (data.daily[0].weather[0].icon);
         var extantIconEl = document.createElement("img")
-        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
-        day1El.appendChild(extantIconEl)
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.daily.weather[0].icon + ".png"
+        day1El.append(extantIconEl)
 
        //Shows Current Temp
         var extantTempEl = document.createElement("p")
-        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
-        day1El.appendChild(extantTempEl);
+        extantTempEl.textContent = "Temp: " + data.daily[0].temp.day + "\xB0F"
+        day1El.append(extantTempEl);
 
        //Shows Current Wind Speed
         var extantWindSpeedEl = document.createElement("p")
-        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
-        day1El.appendChild(extantWindSpeedEl);
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.daily[0].wind_speed + " MPH"
+        day1El.append(extantWindSpeedEl);
 
        //Shows Current Humidity
         var extantHumidityEl = document.createElement("p")
-        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
-        day1El.appendChild(extantHumidityEl);
+        extantHumidityEl.textContent = "Humidity: " + data.daily[0].humidity + "%"
+        day1El.append(extantHumidityEl);
 
        //Shows Current UV Index
         var extantUVIndexEl = document.createElement("p")
-        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
-        day1El.appendChild(extantUVIndexEl);
+        extantUVIndexEl.textContent = "UV Index: " + data.daily[0].uvi
+        day1El.append(extantUVIndexEl);
 
             day1El.classList.add('fiveDay-box');
         });
@@ -172,31 +177,36 @@ var displayForecast2 = function(pickedCity) {
     fetch(pickedCity).then(function(response) {
         response.json().then(function(data) {
 
+             // Shows Date
+                var extantDateEl = document.createElement("h5")
+                extantDateEl.textContent = moment().add(2, 'days').format('1')
+                day2El.append(extantDateEl);
+
        //shows Icons 
         console.log (data.current.weather[0].icon);
         var extantIconEl = document.createElement("img")
-        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
-        day2El.appendChild(extantIconEl)
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + ".png"
+        day2El.append(extantIconEl)
 
        //Shows Current Temp
         var extantTempEl = document.createElement("p")
-        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
-        day2El.appendChild(extantTempEl);
+        extantTempEl.textContent = "Temp: " + data.daily[1].temp.day + "\xB0F"
+        day2El.append(extantTempEl);
 
        //Shows Current Wind Speed
         var extantWindSpeedEl = document.createElement("p")
-        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
-        day2El.appendChild(extantWindSpeedEl);
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.daily[1].wind_speed + " MPH"
+        day2El.append(extantWindSpeedEl);
 
        //Shows Current Humidity
         var extantHumidityEl = document.createElement("p")
-        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
-        day2El.appendChild(extantHumidityEl);
+        extantHumidityEl.textContent = "Humidity: " + data.daily[1].humidity + "%"
+        day2El.append(extantHumidityEl);
 
        //Shows Current UV Index
         var extantUVIndexEl = document.createElement("p")
-        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
-        day2El.appendChild(extantUVIndexEl);
+        extantUVIndexEl.textContent = "UV Index: " + data.daily[1].uvi
+        day2El.append(extantUVIndexEl);
 
             day2El.classList.add('fiveDay-box');
         });
@@ -209,31 +219,35 @@ var displayForecast3 = function(pickedCity) {
     fetch(pickedCity).then(function(response) {
         response.json().then(function(data) {
 
+            // Shows Date
+            var extantDateEl = document.createElement("h5")
+            extantDateEl.textContent = moment().add(3, 'days').format('1')
+            day3El.append(extantDateEl);
        //shows Icons 
         console.log (data.current.weather[0].icon);
         var extantIconEl = document.createElement("img")
-        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
-        day3El.appendChild(extantIconEl)
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon + ".png"
+        day3El.append(extantIconEl)
 
        //Shows Current Temp
         var extantTempEl = document.createElement("p")
-        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
-        day3El.appendChild(extantTempEl);
+        extantTempEl.textContent = "Temp: " + data.daily[2].temp.day + "\xB0F"
+        day3El.append(extantTempEl);
 
        //Shows Current Wind Speed
         var extantWindSpeedEl = document.createElement("p")
-        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
-        day3El.appendChild(extantWindSpeedEl);
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.daily[2].wind_speed + " MPH"
+        day3El.append(extantWindSpeedEl);
 
        //Shows Current Humidity
         var extantHumidityEl = document.createElement("p")
-        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
-        day3El.appendChild(extantHumidityEl);
+        extantHumidityEl.textContent = "Humidity: " + data.daily[2].humidity + "%"
+        day3El.append(extantHumidityEl);
 
        //Shows Current UV Index
         var extantUVIndexEl = document.createElement("p")
-        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
-        day3El.appendChild(extantUVIndexEl);
+        extantUVIndexEl.textContent = "UV Index: " + data.daily[2].uvi
+        day3El.append(extantUVIndexEl);
 
             day3El.classList.add('fiveDay-box');
         });
@@ -246,31 +260,36 @@ var displayForecast4 = function(pickedCity) {
     fetch(pickedCity).then(function(response) {
         response.json().then(function(data) {
 
+            // Shows Date
+            var extantDateEl = document.createElement("h5")
+            extantDateEl.textContent = moment().add(4, 'days').format('1')
+            day4El.append(extantDateEl);
+
        //shows Icons 
         console.log (data.current.weather[0].icon);
         var extantIconEl = document.createElement("img")
-        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
-        day4El.appendChild(extantIconEl)
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon + ".png"
+        day4El.append(extantIconEl)
 
        //Shows Current Temp
         var extantTempEl = document.createElement("p")
-        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
-        day4El.appendChild(extantTempEl);
+        extantTempEl.textContent = "Temp: " + data.daily[3].temp.day + "\xB0F"
+        day4El.append(extantTempEl);
 
        //Shows Current Wind Speed
         var extantWindSpeedEl = document.createElement("p")
-        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
-        day4El.appendChild(extantWindSpeedEl);
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.daily[3].wind_speed + " MPH"
+        day4El.append(extantWindSpeedEl);
 
        //Shows Current Humidity
         var extantHumidityEl = document.createElement("p")
-        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
-        day4El.appendChild(extantHumidityEl);
+        extantHumidityEl.textContent = "Humidity: " + data.daily[3].humidity + "%"
+        day4El.append(extantHumidityEl);
 
        //Shows Current UV Index
         var extantUVIndexEl = document.createElement("p")
-        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
-        day4El.appendChild(extantUVIndexEl);
+        extantUVIndexEl.textContent = "UV Index: " + data.daily[3].uvi
+        day4El.append(extantUVIndexEl);
 
             day4El.classList.add('fiveDay-box');
         });
@@ -283,31 +302,35 @@ var displayForecast5 = function(pickedCity) {
     fetch(pickedCity).then(function(response) {
         response.json().then(function(data) {
 
+            // Shows Date
+            var extantDateEl = document.createElement("h5")
+            extantDateEl.textContent = moment().add(5, 'days').format('1')
+            day5El.append(extantDateEl);
        //shows Icons 
         console.log (data.current.weather[0].icon);
         var extantIconEl = document.createElement("img")
-        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
-        day5El.appendChild(extantIconEl)
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon + ".png"
+        day5El.append(extantIconEl)
 
        //Shows Current Temp
         var extantTempEl = document.createElement("p")
-        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
-        day5El.appendChild(extantTempEl);
+        extantTempEl.textContent = "Temp: " + data.daily[4].temp.day + "\xB0F"
+        day5El.append(extantTempEl);
 
        //Shows Current Wind Speed
         var extantWindSpeedEl = document.createElement("p")
-        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
-        day5El.appendChild(extantWindSpeedEl);
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.daily[4].wind_speed + " MPH"
+        day5El.append(extantWindSpeedEl);
 
        //Shows Current Humidity
         var extantHumidityEl = document.createElement("p")
-        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
-        day5El.appendChild(extantHumidityEl);
+        extantHumidityEl.textContent = "Humidity: " + data.daily[4].humidity + "%"
+        day5El.append(extantHumidityEl);
 
        //Shows Current UV Index
         var extantUVIndexEl = document.createElement("p")
-        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
-        day5El.appendChild(extantUVIndexEl);
+        extantUVIndexEl.textContent = "UV Index: " + data.daily[4].uvi
+        day5El.append(extantUVIndexEl);
 
             day5El.classList.add('fiveDay-box');
         });
