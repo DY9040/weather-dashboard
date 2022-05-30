@@ -6,133 +6,100 @@ var API_Key ='cba0d561fef3195ac96f2d675321d911'
 // EX. https://api.openweathermap.org/data/2.5/onecall?
 // on screen///
 
-var cityName = "Richmond"
-var Coordinates =("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=1&appid=cba0d561fef3195ac96f2d675321d911");
+// var cityName = "Richmond"
+// var Coordinates =("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=1&appid=cba0d561fef3195ac96f2d675321d911");
 
-fetch(Coordinates).then((response) => {
-response.json().then((data) => {
-console.log("https://api.openweathermap.org/data/2.5/oncall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&appid=cba0d561fef3195ac96f2d675321d911")
-});
-
-});
-
-
-
-// var citySearchFormEl = document.querySelector("#citySearchForm");
-// var cityInputEl = document.querySelector("#city-input");
-// var weatherInfoEl = document.querySelector("#weather-info");
-// var locationEl = document.querySelector("#location");
-// var day1El = document.querySelector("#day-1");
-// var day2El = document.querySelector("#day-2");
-// var day3El = document.querySelector("#day-3");
-// var day4El = document.querySelector("#day-4");
-// var day5El = document.querySelector("#day-5");
-// var recentSearch1= document.querySelector("#recent-search-1");
-// var lat= "";
-// var lon= "";
-
-// var weatherVariables = {
-//     id: "",
-//     temp: "",
-//     wind: "",
-//     humidity: "",
-//     uvIndex: "",
-// };
-
-// citySearchFormEl.addEventListener('submit',() =>{
-//     formSubmitHandler(event);
+// fetch(Coordinates).then((response) => {
+// response.json().then((data) => {
+// console.log("https://api.openweathermap.org/data/2.5/oncall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&appid=cba0d561fef3195ac96f2d675321d911")
 // });
 
-// var cityCoords = (cityInput) =>{
-//     cityInput = cityInputEl.value;
-//     if(cityInput) {
-//         var apiCall =
-//         "http://api.openweathermap.org/geo/1.0/direct?q=" + 
-//         cityInput + 
-//         "&limit=1&appid=cba0d561fef3195ac96f2d675321d911";
-//         fetch(apiCall).then((response) => {
-//             response.json().then((data) => {
-//                 lat = data.[0].lat;
-//                 lon = data.[0].lon;
-//                 displayWeather(pickedCity);
-//                 displayForecast(pickedCity);
-//                 displayForecast2(pickedCity);
-//                 displayForecast3(pickedCity);
-//                 displayForecast4(pickedCity);
-//                 displayForecast5(pickedCity);
+// });
 
-//     }
-// }
+
+
+var citySearchFormEl = document.querySelector("#citySearchForm");
+var cityInputEl = document.querySelector("#city-input");
+var weatherInfoEl = document.querySelector("#weather-info");
+var locationEl = document.querySelector("#location");
+var day1El = document.querySelector("#day-1");
+var day2El = document.querySelector("#day-2");
+var day3El = document.querySelector("#day-3");
+var day4El = document.querySelector("#day-4");
+var day5El = document.querySelector("#day-5");
+var recentSearch1= document.querySelector("#recent-search-1");
+
+
 
 // // //Submit click////////
-// // var formSubmitHandler = function(NewCity) {
-// //     event.preventDefault();
+var formSubmitHandler = function(event) {
+    event.preventDefault();
 
-// //     var city = cityInputEl.value.trim() || NewCity;
+    var city = cityInputEl.value.trim()
 
-// //     if(city) {
-// //         getCityCoords(city);
-// //         cityInputEl.value ="";
-// //         weatherInfoEl.textContent ="";
-// //         day1EL.textContent ="";
-// //         day2El.textContent ="";
-// //         day3El.textContent ="";
-// //         day4El.textContent ="";
-// //         day5El.textContent ="";
-// //         grabCityName(city);
-// //     } else {
-// //         alert("Please enter a city");
-// //     }
-// // };
+    if(city) {
+        getCityCoords(city);
+        cityInputEl.value ="";
+        weatherInfoEl.textContent ="";
+        // day1EL.textContent ="";
+        // day2El.textContent ="";
+        // day3El.textContent ="";
+        // day4El.textContent ="";
+        // day5El.textContent ="";
+        grabCityName(city);
+    } else {
+        alert("Please enter a city");
+    }
+};
 
+citySearchFormEl.addEventListener('submit', formSubmitHandler);
 
-// // city -> lat and lon coordinates
-// var getCityCoords = function(city) {
-
-//     var ApiCoordinates = ("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + API_Key);
-
-//     fetch(ApiCoordinates).then(function(response) {
-//         if (response.ok) {
-//             response.json().then(function(data) {
-//                 var pickedCity = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=" + API_Key);
-//                 displayWeather(pickedCity);
+// city -> lat and lon coordinates
+var getCityCoords = function(city) {
+    var ApiCoordinates = ("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=cba0d561fef3195ac96f2d675321d911");
+        fetch(ApiCoordinates).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                var pickedCity = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&appid=cba0d561fef3195ac96f2d675321d911");
+                displayWeather(pickedCity);
 //                 displayForecast(pickedCity);
 //                 displayForecast2(pickedCity);
 //                 displayForecast3(pickedCity);
 //                 displayForecast4(pickedCity);
 //                 displayForecast5(pickedCity);
-//             });
-//         } else {
-//             alert("Error: City Not Found")
-//         }
-//     })
-//     .catch(function(error) {
-//         alert("Error to connect to openweathermap.org");
-//     });
-// };
+            });
+        } else {
+            alert("Error: City Not Found")
+        }
+    })
+    .catch(function(error) {
+        alert("Error to connect to openweathermap.org");
+    });
+};
 
 
 // // get city name for the openweathermap api and renders it on the screen
-// var grabCityName = function(city) {
-//     var cityName = ("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + API_Key);
+var grabCityName = function(city) {
+    var cityName = ("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=cba0d561fef3195ac96f2d675321d911");
 
-//     fetch(cityName).then(function(response) {
-//         response.json().then(function(data) {
+    fetch(cityName).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
 
-//             var currentWeatherEl = document.createElement("h4");
-//             currentWeatherEl.textContent =data[0].name + "(" + moment().format('1') + ")"
+            var currentWeatherEl = document.createElement("h4");
+            currentWeatherEl.textContent =data[0].name + "(" + moment().format('1') + ")"
 //             weatherInfoEl.classList.add('weather-info');
-//             weatherInfoEl.append(currentWeatherEl);
-//         });
-//     })
-// };
+            weatherInfoEl.append(currentWeatherEl);
+        });
+    })
+};
 // // 5 day Forecast///
 
 
-// // Day 1 ////
-// var displayForecast = function(pickedCity) {
-//     fetch(pickedCity).then(function(response) {
-//         response.json().then(function(data) {
+// Day 1 ////
+var displayForecast = function(pickedCity) {
+    fetch(pickedCity).then(function(response) {
+        response.json().then(function(data) {
 
 //             //Display Date
 //             var DateEl = document.createElement("h6")
@@ -160,7 +127,7 @@ console.log("https://api.openweathermap.org/data/2.5/oncall?lat=" + data[0].lat 
 //             day1El.append(displayHumidityEl);
 
 //             day1El.classList.add('5DayForcast');
-//         });
+        });
 
-//     });
-// };
+    });
+};
