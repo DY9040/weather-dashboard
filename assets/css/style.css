@@ -53,9 +53,15 @@ input {
     margin: 10px auto 20px auto;
 }
 
+.fiveDay-box {
+    border: 3px solid black;
+    padding: 10px 10px 0 10px;
+    margin: 10px 10px 0 25px;
+}
+
 .container{
     padding: 20px 70;
-    color: white;
+    color: black;
 }
 
 .row{

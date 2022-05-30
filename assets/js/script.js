@@ -62,11 +62,11 @@ var getCityCoords = function(city) {
             response.json().then(function(data) {
                 var pickedCity = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=cba0d561fef3195ac96f2d675321d911");
                 displayWeather(pickedCity);
-//                 displayForecast(pickedCity);
-//                 displayForecast2(pickedCity);
-//                 displayForecast3(pickedCity);
-//                 displayForecast4(pickedCity);
-//                 displayForecast5(pickedCity);
+                displayForecast(pickedCity);
+                displayForecast2(pickedCity);
+                displayForecast3(pickedCity);
+                displayForecast4(pickedCity);
+                displayForecast5(pickedCity);
             });
         } else {
             alert("Error: City Not Found")
@@ -126,41 +126,191 @@ var grabCityName = function(city) {
         });
     })
 };
-// // 5 day Forecast///
+// 5 day Forecast///
 
 
 // Day 1 ////
-// var displayForecast = function(pickedCity) {
-//     fetch(pickedCity).then(function(response) {
-//         response.json().then(function(data) {
+var displayForecast = function(pickedCity) {
+    fetch(pickedCity).then(function(response) {
+        response.json().then(function(data) {
 
-// //             //Display Date
-// //             var DateEl = document.createElement("h6")
-// //             DateEl.textContent = moment().add(1, 'days').format('1')
-// //             day1El.append(DateEl);
+       //shows Icons 
+        console.log (data.current.weather[0].icon);
+        var extantIconEl = document.createElement("img")
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
+        day1El.appendChild(extantIconEl)
 
-// //             //Display Icon
-// //             var displayIconEl = document.createElement("img")
-// //             displayIconEl.src = "http://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + ".png"
-// //             day1El.append(displayIconEl);
+       //Shows Current Temp
+        var extantTempEl = document.createElement("p")
+        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
+        day1El.appendChild(extantTempEl);
 
-// //             //Display Temp 
-// //             var displayTempEl = document.createElement("p")
-// //             displayTempEl.textContent = "Temp: " + data.daily[0].temp.day + "\xB0F"
-// //             day1El.append(displayTempEl);
+       //Shows Current Wind Speed
+        var extantWindSpeedEl = document.createElement("p")
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
+        day1El.appendChild(extantWindSpeedEl);
 
-// //             // current wind
-// //             var displayWindEl = document.createElement("p")
-// //             displayWindEl.textContent = "Wind: " + data.daily[0].wind_speed + "MPH"
-// //             day1El.append(displayWindEl);
+       //Shows Current Humidity
+        var extantHumidityEl = document.createElement("p")
+        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
+        day1El.appendChild(extantHumidityEl);
 
-// //             // Display Humidity
-// //             var displayHumidityEl = document.createElement("p")
-// //             displayHumidityEl.textContent = "Humidity: " + data.daily[0].humidity + "%"
-// //             day1El.append(displayHumidityEl);
+       //Shows Current UV Index
+        var extantUVIndexEl = document.createElement("p")
+        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
+        day1El.appendChild(extantUVIndexEl);
 
-// //             day1El.classList.add('5DayForcast');
-//         });
+            day1El.classList.add('fiveDay-box');
+        });
 
-//     });
-// };
+    });
+};
+
+
+// Day 2 ////
+var displayForecast2 = function(pickedCity) {
+    fetch(pickedCity).then(function(response) {
+        response.json().then(function(data) {
+
+       //shows Icons 
+        console.log (data.current.weather[0].icon);
+        var extantIconEl = document.createElement("img")
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
+        day2El.appendChild(extantIconEl)
+
+       //Shows Current Temp
+        var extantTempEl = document.createElement("p")
+        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
+        day2El.appendChild(extantTempEl);
+
+       //Shows Current Wind Speed
+        var extantWindSpeedEl = document.createElement("p")
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
+        day2El.appendChild(extantWindSpeedEl);
+
+       //Shows Current Humidity
+        var extantHumidityEl = document.createElement("p")
+        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
+        day2El.appendChild(extantHumidityEl);
+
+       //Shows Current UV Index
+        var extantUVIndexEl = document.createElement("p")
+        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
+        day2El.appendChild(extantUVIndexEl);
+
+            day2El.classList.add('fiveDay-box');
+        });
+
+    });
+};
+
+// Day 3 ////
+var displayForecast3 = function(pickedCity) {
+    fetch(pickedCity).then(function(response) {
+        response.json().then(function(data) {
+
+       //shows Icons 
+        console.log (data.current.weather[0].icon);
+        var extantIconEl = document.createElement("img")
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
+        day3El.appendChild(extantIconEl)
+
+       //Shows Current Temp
+        var extantTempEl = document.createElement("p")
+        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
+        day3El.appendChild(extantTempEl);
+
+       //Shows Current Wind Speed
+        var extantWindSpeedEl = document.createElement("p")
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
+        day3El.appendChild(extantWindSpeedEl);
+
+       //Shows Current Humidity
+        var extantHumidityEl = document.createElement("p")
+        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
+        day3El.appendChild(extantHumidityEl);
+
+       //Shows Current UV Index
+        var extantUVIndexEl = document.createElement("p")
+        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
+        day3El.appendChild(extantUVIndexEl);
+
+            day3El.classList.add('fiveDay-box');
+        });
+
+    });
+};
+
+// Day 4 ////
+var displayForecast4 = function(pickedCity) {
+    fetch(pickedCity).then(function(response) {
+        response.json().then(function(data) {
+
+       //shows Icons 
+        console.log (data.current.weather[0].icon);
+        var extantIconEl = document.createElement("img")
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
+        day4El.appendChild(extantIconEl)
+
+       //Shows Current Temp
+        var extantTempEl = document.createElement("p")
+        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
+        day4El.appendChild(extantTempEl);
+
+       //Shows Current Wind Speed
+        var extantWindSpeedEl = document.createElement("p")
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
+        day4El.appendChild(extantWindSpeedEl);
+
+       //Shows Current Humidity
+        var extantHumidityEl = document.createElement("p")
+        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
+        day4El.appendChild(extantHumidityEl);
+
+       //Shows Current UV Index
+        var extantUVIndexEl = document.createElement("p")
+        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
+        day4El.appendChild(extantUVIndexEl);
+
+            day4El.classList.add('fiveDay-box');
+        });
+
+    });
+};
+
+// Day 5 ////
+var displayForecast5 = function(pickedCity) {
+    fetch(pickedCity).then(function(response) {
+        response.json().then(function(data) {
+
+       //shows Icons 
+        console.log (data.current.weather[0].icon);
+        var extantIconEl = document.createElement("img")
+        extantIconEl.src = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png"
+        day5El.appendChild(extantIconEl)
+
+       //Shows Current Temp
+        var extantTempEl = document.createElement("p")
+        extantTempEl.textContent = "Temp: " + data.current.temp + "\xB0F"
+        day5El.appendChild(extantTempEl);
+
+       //Shows Current Wind Speed
+        var extantWindSpeedEl = document.createElement("p")
+        extantWindSpeedEl.textContent = "Wind Speed: " + data.current.wind_speed + " MPH"
+        day5El.appendChild(extantWindSpeedEl);
+
+       //Shows Current Humidity
+        var extantHumidityEl = document.createElement("p")
+        extantHumidityEl.textContent = "Humidity: " + data.current.humidity + "%"
+        day5El.appendChild(extantHumidityEl);
+
+       //Shows Current UV Index
+        var extantUVIndexEl = document.createElement("p")
+        extantUVIndexEl.textContent = "UV Index: " + data.current.uvi
+        day5El.appendChild(extantUVIndexEl);
+
+            day5El.classList.add('fiveDay-box');
+        });
+
+    });
+};
