@@ -19,12 +19,13 @@ header {
     height: 50px;
     display: flex;
     justify-content: center;
+    font-weight: 700px;
 
 }
 
 form {
     padding: 15px 0;
-    border-bottom: 1.5px solid #fff;
+    border-bottom: 1.5px solid black;
 }
 
 button {
@@ -40,27 +41,59 @@ input {
     width: 100%;
     padding: 10px;
     border-radius: 3px;
-    border: 3px solid #fff;
+    border: 3px solid black;
     font-size: 1.2rem;
     color: black;
     text-align: center;
-    background-color: transparent
+    background-color: transparent;
 }
 
 .weather-info {
-    border: 3px solid #fff;
+    border: 3px solid ;
     padding: 10px;
     margin: 10px auto 20px auto;
+    display: flex;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .fiveDay-box {
-    border: 3px solid black;
+    border: 6px solid black;
     padding: 10px 10px 0 10px;
+    display: flex;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.uv-index-green {
+    background-color: #38B000;
+    margin-left: 10px;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.uv-index-yellow {
+    background-color: #FFC300;
+    margin-left: 10px;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.uv-index-red {
+    background-color: #FF0000;
+    margin-left: 10px;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.uv-index-div {
+    display: flex;
 }
 
 .container{
     padding: 20px 70;
     color: black;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .row{
